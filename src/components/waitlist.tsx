@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Mail, Check, Copy, Share2, Sparkles } from 'lucide-react'
 import confetti from 'canvas-confetti'
@@ -13,6 +13,15 @@ export function Waitlist() {
   const [referralCode, setReferralCode] = useState<string | null>(null)
   const [copied, setCopied] = useState(false)
   const [total, setTotal] = useState<number | null>(null)
+  const [referredBy, setReferredBy] = useState<string | null>(null)
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search)
+    const ref = params.get('ref')
+    if (ref) {
+      setReferredBy(ref)
+    }
+  }, [])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -22,7 +31,7 @@ export function Waitlist() {
       const response = await fetch('/api/waitlist', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email })
+        body: JSON.stringify({ email, referredBy })
       })
 
       const data = await response.json()
@@ -45,6 +54,7 @@ export function Waitlist() {
       setStatus('error')
     }
   }
+
 
   const copyReferralLink = () => {
     const link = `${window.location.origin}?ref=${referralCode}`
