@@ -5,6 +5,7 @@ import "./globals.css";
 import { Providers } from "./providers";
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://selensie.com'),
@@ -72,6 +73,7 @@ export default function RootLayout({
         <Providers>
           <Navigation />
           {children}
+          <Analytics />
           <Footer />
         </Providers>
       </body>
