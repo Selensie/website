@@ -1,0 +1,40 @@
+# dependencies
+node_modules
+.pnp
+.pnp.js
+
+# testing
+coverage
+
+# next.js
+.next/
+out/
+build
+dist
+
+# production
+*.log*
+
+# env files
+.env
+.env*.local
+.env.production
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# os files
+.DS_Store
+Thumbs.db
+
+# ide
+.vscode/*
+!.vscode/extensions.json
+.idea
+
+# drizzle
+drizzle/s

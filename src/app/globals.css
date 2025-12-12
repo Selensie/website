@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: oklch(0% 0 0);
+  --color-foreground: oklch(98% 0 0);
+  --color-primary: oklch(98% 0 0);
+  --color-primary-foreground: oklch(9% 0 0);
+  --color-secondary: oklch(15% 0.02 264);
+  --color-secondary-foreground: oklch(98% 0 0);
+  --color-muted: oklch(15% 0.02 264);
+  --color-muted-foreground: oklch(64% 0.02 264);
+  --color-accent: oklch(15% 0.02 264);
+  --color-accent-foreground: oklch(98% 0 0);
+  --color-border: oklch(15% 0.02 264);
+  --color-input: oklch(15% 0.02 264);
+  --color-ring: oklch(83% 0.02 264);
+  
+  --radius-lg: 0.5rem;
+  --radius-md: calc(0.5rem - 2px);
+  --radius-sm: calc(0.5rem - 4px);
+}
+
+@keyframes gradient {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.animate-gradient {
+  animation: gradient 8s ease infinite;
+}
+
+* {
+  border-color: var(--color-border);
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-feature-settings: "rlig" 1, "calt" 1;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.gradient-mesh {
+  background: linear-gradient(-45deg, #000000, #1a1a1a, #0a0a0a, #000000);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
